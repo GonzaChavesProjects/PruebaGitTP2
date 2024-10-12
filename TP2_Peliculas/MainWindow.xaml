@@ -1,0 +1,80 @@
+﻿<Window x:Class="TP2_Peliculas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TP2_Peliculas"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="900">
+    <Grid Background="AntiqueWhite" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" ></ColumnDefinition>
+            <ColumnDefinition Width="300" ></ColumnDefinition>
+            <ColumnDefinition Width="300" ></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" >
+            <Image x:Name="logo_izq" Source="camera.png" Width="50" Margin="30,30,30,10" ></Image>
+            
+            <Label Content="Nombre de la película" FontSize="18" Margin="10"/>
+            <TextBox x:Name="nombrePelicula"  Margin="10" FontSize="18" 
+                 TextChanged="nombrePelicula_TextChanged" />
+            
+            <Label Content="Nombre del director" Margin="10" FontSize="18" />
+            <TextBox x:Name="nombreDirector"  Margin="10" FontSize="18" 
+                  TextChanged="nombreDirector_TextChanged"/>
+            
+            <Label  Content="Genero de la pelicula" Margin="10" FontSize="18" />
+            <ComboBox x:Name="generoPelicula" Margin="10" FontSize="18" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="{Binding genero}" FontSize="18" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" >  
+            <Label Content="Actores principales" FontSize="18" Margin="20,92,20,10" />
+            <TextBox x:Name="actoresPrincipales"  Margin="10" FontSize="18" 
+                     TextChanged="nombreDirector_TextChanged"/>
+            
+            <Label Content="Duración de la Película (minutos)" Margin="10" FontSize="18" />
+            <TextBox Name="duracion_film" Margin="10" FontSize="18"
+                     LostFocus="Duracion_film_LostFocus" />
+
+            <Label Content="Año Realizacion (1900-2024)" FontSize="18" Margin="10" />
+            <TextBox x:Name="añoRealizacion" Margin="10" FontSize="18" LostFocus="añoRealizacion_LostFocus" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" >
+            <Label Content="Fecha de estreno" FontSize="18" Margin="10"/>
+            <DatePicker Name="fechadeestreno" Margin="10" Width="200" SelectedDateChanged="fechaEstreno_SelectedDateChanged"
+/>
+
+            <Label Content="Dias de Filmacion" Margin="10" FontSize="18" />
+            <TextBox x:Name="diasdefilmacion"  Margin="10" FontSize="18"
+                     TextChanged="diasdefilmacion_TextChanged"/>
+
+            <Label  Content="Pais de filmacion" Margin="10" FontSize="18" />
+            <ComboBox x:Name="paisdefilmacion" Margin="10" FontSize="18" >
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Text="{Binding pais}" FontSize="18" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+
+            </ComboBox>
+
+            <Image x:Name="logo_der" Source="cinta.png" Width="200" VerticalAlignment="Bottom"></Image>
+ 
+
+        </StackPanel>
+
+    </Grid>
+</Window>
